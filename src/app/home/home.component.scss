@@ -1,0 +1,26 @@
+.about-img {
+  float: left;
+}
+
+.about-img img {
+  width: 350px;
+}
+
+.about {
+  float: right;
+  width: 50%;
+}
+
+.content .container {
+  margin: 10px auto;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .about-img,
+  .about-img img,
+  .about {
+    float: none;
+    width: 100%;
+  }
+}
