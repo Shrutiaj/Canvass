@@ -28,8 +28,8 @@ public class SubmittedSurvey {
 	@Column(name="surveyID")
 	int surveyID;
 	
-	@Column(name="username")
-	String username;
+	@Column(name="userName")
+	String userName;
 	
 	@Column(name="response")
 	String response;
@@ -58,7 +58,7 @@ public class SubmittedSurvey {
 		this.responseID = responseID;
 		this.questionID = questionID;
 		this.surveyID = surveyID;
-		this.username = username;
+		this.userName = username;
 		this.response = response;
 		this.createdBy = createdBy;
 	}
@@ -88,11 +88,11 @@ public class SubmittedSurvey {
 	}
 
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String userName) {
+		this.userName = userName;
 	}
 
 	public String getResponse() {

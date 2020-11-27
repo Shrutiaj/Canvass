@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.appapi.canvassapi.models.UserDetail;
 
 public interface UserDetailRepository extends JpaRepository<UserDetail, String> {
-	UserDetail findUserDetailByUserName(String userName);
+	UserDetail findUserDetialByUserName(String userName);
 }

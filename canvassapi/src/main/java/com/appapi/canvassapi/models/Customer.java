@@ -1,10 +1,14 @@
 package com.appapi.canvassapi.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +25,10 @@ public class Customer {
 	
 	@Column(name = "custDesc")
 	String custDesc;
+	
+	@OneToMany(mappedBy="customer")
+	private Set<Survey> surveys = new HashSet<Survey>();
+	
 		
 	public Customer(int custID, String custName, String custDesc) {
 		super();
