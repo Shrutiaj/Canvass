@@ -2,10 +2,12 @@ package com.appapi.canvassapi.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="Users")
@@ -23,6 +25,11 @@ public class User {
 	
 	@Column(name="roleID")
 	int roleID;
+	
+	@OneToOne
+	@JoinColumn(name = "userName", referencedColumnName = "userName", insertable = false, updatable = false)
+	@JsonBackReference(value = "userDetail")
+	private UserDetail userDetail;
 
 	public User(String userName, String password, int custID, int roleID) {
 		super();
@@ -62,6 +69,14 @@ public class User {
 
 	public void setRoleID(int roleID) {
 		this.roleID = roleID;
+	}
+
+	public UserDetail getUser() {
+		return userDetail;
+	}
+
+	public void setUserDetail(UserDetail userDetail) {
+		this.userDetail = userDetail;
 	}
 	
 }

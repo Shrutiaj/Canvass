@@ -1,0 +1,65 @@
+.content .container {
+  min-height: 100vh;
+  margin: auto;
+}
+
+form {
+  width: 50%;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 90px;
+  float: right;
+}
+
+// form label {
+//   //   padding: 15px;
+// }
+
+form input {
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 45%;
+}
+
+form .button {
+  background: #e8491d;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+}
+
+form a {
+  margin: 0 0 0 10px;
+}
+
+form ul li {
+  display: inline;
+  float: left;
+  padding: 0 20px 0 0;
+}
+
+.alert,
+.alert-danger {
+  color: red;
+}
+
+.form-control-label {
+  margin-right: 10px;
+}
+
+form .label-container {
+  float: left;
+  width: 30%;
+}
+
+@media (max-width: 768px) {
+  form {
+    text-align: left;
+    float: none;
+    width: 100%;
+  }
+}

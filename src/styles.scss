@@ -28,6 +28,20 @@ ul {
   overflow: hidden;
 }
 
+.content .container {
+  min-height: 100vh;
+  margin: auto;
+}
+
+.about-img {
+  float: left;
+  width: 46%;
+}
+
+.about-img img {
+  width: 90%;
+}
+
 /* Header Styles */
 header {
   background: $background;
@@ -87,5 +101,11 @@ footer {
 
   header .container {
     overflow: visible;
+  }
+  .about-img,
+  .about-img img,
+  .about {
+    float: none;
+    width: 100%;
   }
 }

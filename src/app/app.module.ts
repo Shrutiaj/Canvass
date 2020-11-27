@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { HomeComponent } from './home/home.component';
+import { PasswordValidatorDirective } from './directives/password-validator.directive';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,15 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     SignUpComponent,
     MyAccountComponent,
-    HomeComponent
+    HomeComponent,
+    PasswordValidatorDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,14 +2,14 @@
   min-height: 100vh;
   margin: auto;
 }
+
 form {
   width: 50%;
   margin: 10px auto;
   padding: 20px;
-  //   border: 5px solid #e8491d;
   border-radius: 10px;
-  text-align: center;
   min-height: 90px;
+  float: right;
 }
 
 // form label {
@@ -35,8 +35,19 @@ form a {
   margin: 0 0 0 10px;
 }
 
+.alert,
+.alert-danger {
+  color: red;
+}
+
+.form-control-label {
+  margin-right: 10px;
+}
+
 @media (max-width: 768px) {
   form {
     text-align: left;
+    float: none;
+    width: 100%;
   }
 }
