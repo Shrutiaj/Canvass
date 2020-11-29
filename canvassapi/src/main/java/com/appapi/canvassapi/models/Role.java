@@ -22,6 +22,8 @@ public class Role {
 	@Column(name = "roleDesc")
 	String roleDesc;
 
+	public Role() { }
+	
 	public Role(int roleID, String roleName, String roleDesc) {
 		super();
 		this.roleID = roleID;

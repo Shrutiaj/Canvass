@@ -5,12 +5,14 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { SignUpComponent } from './sign-up/sign-up.component'
+import { SignOutComponent } from './sign-out/sign-out.component'
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "sign-up", component: SignUpComponent },
   { path: "my-account", component: MyAccountComponent },
+  { path: "sign-out", component: SignOutComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
 ];
 

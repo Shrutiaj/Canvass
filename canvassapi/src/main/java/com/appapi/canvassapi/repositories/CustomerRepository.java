@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.appapi.canvassapi.models.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-	Customer findCustomerByCustomerId(Long customer_id);
+	Customer findCustomerByCustID(Long custID);
 }

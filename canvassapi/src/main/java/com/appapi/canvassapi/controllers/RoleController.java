@@ -33,7 +33,7 @@ public class RoleController {
 	}
 	
 	@PostMapping("/createRole")
-	public Role createCustomer(@Valid @RequestBody Role role) {
+	public Role createRole(@Valid @RequestBody Role role) {
 		return roleDAO.save(role);
 	}
 }

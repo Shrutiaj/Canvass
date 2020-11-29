@@ -2,22 +2,16 @@ package com.appapi.canvassapi.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="UserDetails")
 public class UserDetail {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	int username;
+	String userName;
 	
 	@Column(name="fullName")
 	String fullName;
@@ -27,26 +21,23 @@ public class UserDetail {
 	
 	@Column(name="userSummary")
 	String userSummary;
-
-	@OneToOne
-	@JoinColumn(name = "userName", referencedColumnName = "userName", insertable = false, updatable = false)
-	@JsonBackReference(value = "user")
-	private User user;
 	
-	public UserDetail(int username, String fullName, String phoneNumber, String userSummary) {
+	public UserDetail() { }
+	
+	public UserDetail(String userName, String fullName, String phoneNumber, String userSummary) {
 		super();
-		this.username = username;
+		this.userName = userName;
 		this.fullName = fullName;
 		this.phoneNumber = phoneNumber;
 		this.userSummary = userSummary;
 	}
 
-	public int getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(int username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getFullName() {

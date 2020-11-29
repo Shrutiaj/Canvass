@@ -23,7 +23,7 @@ public class SubmittedSurveyController {
 	SubmittedSurveyDAO submittedSurveyDAO;
 	
 	@GetMapping("/all")
-	public List<SubmittedSurvey> getAllCustomers(){
+	public List<SubmittedSurvey> getAllSubmittedSurveys(){
 		return submittedSurveyDAO.findAll();
 	}
 	
@@ -33,7 +33,7 @@ public class SubmittedSurveyController {
 	}
 	
 	@PostMapping("/createSubmittedSurvey")
-	public SubmittedSurvey createSubmittedSurvey(@Valid @RequestBody SubmittedSurvey role) {
-		return submittedSurveyDAO.save(role);
+	public SubmittedSurvey createSubmittedSurvey(@Valid @RequestBody SubmittedSurvey submittedSurvey) {
+		return submittedSurveyDAO.save(submittedSurvey);
 	}
 }

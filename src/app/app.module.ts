@@ -10,6 +10,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { HomeComponent } from './home/home.component';
 import { PasswordValidatorDirective } from './directives/password-validator.directive';
+import { SignOutComponent } from './sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PasswordValidatorDirective } from './directives/password-validator.dire
     SignUpComponent,
     MyAccountComponent,
     HomeComponent,
-    PasswordValidatorDirective
+    PasswordValidatorDirective,
+    SignOutComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { PasswordValidatorDirective } from './directives/password-validator.dire
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

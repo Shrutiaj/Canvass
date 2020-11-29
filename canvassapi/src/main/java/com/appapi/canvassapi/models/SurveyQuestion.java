@@ -58,6 +58,8 @@ public class SurveyQuestion {
 	@JoinColumn (name="surveyID",insertable = false, updatable = false)
 	@JsonBackReference
 	private Survey survey;
+	
+	public SurveyQuestion() { }
 
 	public SurveyQuestion(int questionID, int surveyID, String question, ResponseType responseType, String optionValues,
 			Timestamp createdDate, String createdBy, Timestamp lastModified, String modifiedBy) {

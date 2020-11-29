@@ -7,7 +7,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="Users")
@@ -28,15 +27,17 @@ public class User {
 	
 	@OneToOne
 	@JoinColumn(name = "userName", referencedColumnName = "userName", insertable = false, updatable = false)
-	@JsonBackReference(value = "userDetail")
 	private UserDetail userDetail;
+	
+	public User() { }
 
-	public User(String userName, String password, int custID, int roleID) {
+	public User(String userName, String password, int custID, int roleID, UserDetail userDetail) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		this.custID = custID;
 		this.roleID = roleID;
+		this.userDetail = userDetail;
 	}
 
 	public String getUserName() {
@@ -71,7 +72,7 @@ public class User {
 		this.roleID = roleID;
 	}
 
-	public UserDetail getUser() {
+	public UserDetail getUserDetail() {
 		return userDetail;
 	}
 

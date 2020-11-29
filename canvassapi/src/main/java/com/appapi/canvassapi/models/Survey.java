@@ -55,6 +55,8 @@ public class Survey {
 	@OneToMany(mappedBy = "survey")
     private Set<SurveyQuestion> surveyQuestions = new HashSet<SurveyQuestion>();
 
+	public Survey() { }
+	
 	public Survey(int surveyID, String surveyName, Timestamp createdDate, Timestamp lastModified, int custID,
 			String createdBy, String modifiedBy, String description) {
 		super();

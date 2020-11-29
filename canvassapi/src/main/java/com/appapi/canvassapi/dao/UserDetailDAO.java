@@ -25,7 +25,7 @@ public class UserDetailDAO {
 	
 	/* get a customer */
 	public UserDetail getUserDetailByUserName(String userName) {
-		return userDetailRepository.findUserDetialByUserName(userName);
+		return userDetailRepository.findUserDetailByUserName(userName);
 	}
 	
 	/* delete a customer */

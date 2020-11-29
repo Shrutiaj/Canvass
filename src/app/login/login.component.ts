@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 import{LoginService} from '../services/login.service'
 
@@ -9,13 +10,15 @@ import{LoginService} from '../services/login.service'
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  
   isValidUser = true;
+  @Input() loggenInUser;
   user = {
-    username: "",
+    userName: "",
     password: ""
   }
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router, private appComponent: AppComponent) { }
 
   ngOnInit() {
   }
@@ -25,6 +28,8 @@ export class LoginComponent implements OnInit {
       response => {
         this.isValidUser = Boolean(response);
         if(this.isValidUser){
+          sessionStorage.setItem('userName', this.user.userName);
+          this.appComponent.loggedInUser = sessionStorage.getItem('userName');
           this.router.navigateByUrl('/my-account');
         }
       }

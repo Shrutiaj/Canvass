@@ -15,7 +15,7 @@ import com.appapi.canvassapi.models.SurveyQuestion;
 import com.appapi.canvassapi.models.User;
 
 @Entity
-@Table(name="SubittedSurveys")
+@Table(name="SubmittedSurveys")
 public class SubmittedSurvey {
 	
 	@Id
@@ -52,6 +52,8 @@ public class SubmittedSurvey {
 	@JsonBackReference(value="user")
 	private User user;
 
+	public SubmittedSurvey() { }
+	
 	public SubmittedSurvey(int responseID, int questionID, int surveyID, String username, String response,
 			String createdBy) {
 		super();

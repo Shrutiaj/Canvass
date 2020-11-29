@@ -24,7 +24,7 @@ public class CustomerDAO {
 	
 	/* get a customer */
 	public Customer getCustomerById(Long custID) {
-		return customerRepository.findCustomerByCustomerId(custID);
+		return customerRepository.findCustomerByCustID(custID);
 	}
 	
 	/* delete a customer */

@@ -29,6 +29,7 @@ public class Customer {
 	@OneToMany(mappedBy="customer")
 	private Set<Survey> surveys = new HashSet<Survey>();
 	
+	public Customer() { }
 		
 	public Customer(int custID, String custName, String custDesc) {
 		super();

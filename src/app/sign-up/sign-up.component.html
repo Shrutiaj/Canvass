@@ -2,69 +2,80 @@
   <div class="container">
     <h2>Sign Up</h2>
     <div class="label-container">
-      <label class="form-control-label">Username</label>
+      <label for="userName" class="form-control-label">Username</label>
     </div>
     <div class="input-container">
-      <input type="email" id="username" class="form-control" required placeholder="Enter your username" [(ngModel)]="user.username" name="username" #username="ngModel"/>
+      <input type="email" id="userName" class="form-control" required placeholder="Enter your username" [(ngModel)]="user.userName" name="userName" #userName="ngModel"/>
+      <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+        <div *ngIf="userName.errors.required">
+          Username is required
+        </div>
+      </div>
     </div><br/>
     <div class="label-container">
-      <label class="form-control-label">Password</label>
+      <label for="password" class="form-control-label">Password</label>
     </div>
     <div class="input-container">
       <input name="password" id="password" class="form-control" type="password" [(ngModel)]="user.password" #password="ngModel"  required appPasswordValidator/>
       <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-        {{password.errors.appPasswordValidator}}
         <div *ngIf="password.errors.required">
-          Password is required.
+          Password is required
         </div>
-        <div *ngIf="password.errors.appPasswordValidator">
-          Password is not valid.
+        <div *ngIf="password.errors.passValidator">
+          <div *ngIf="password.errors.passValidator.errMsg.hasNoSpaces != ''">{{password.errors.passValidator.errMsg.hasNoSpaces}}</div>
+          <div *ngIf="password.errors.passValidator.errMsg.hasMin8Chars != ''">{{password.errors.passValidator.errMsg.hasMin8Chars}}</div>
+          <div *ngIf="password.errors.passValidator.errMsg.hasUpperCaseLetter != ''">{{password.errors.passValidator.errMsg.hasUpperCaseLetter}}</div>
+          <div *ngIf="password.errors.passValidator.errMsg.hasSpecialChar != ''">{{password.errors.passValidator.errMsg.hasSpecialChar}}</div>
+          <div *ngIf="password.errors.passValidator.errMsg.hasNumber != ''">{{password.errors.passValidator.errMsg.hasNumber}}</div>
         </div>
       </div>
     </div><br/>
     <div class="label-container">
-      <label class="form-control-label">Confirm Password</label>
+      <label for="confirmpassword" class="form-control-label">Confirm Password</label>
     </div>
     <div class="input-container">
-      <input name="confirmpassword" id="confirmpassword" class="form-control" type="password" [(ngModel)]="user.confirmpassword" #confirmpassword="ngModel" required/>
+      <input name="confirmpassword" id="confirmpassword" class="form-control" type="password" [(ngModel)]="confirmPassword" #confirmpassword="ngModel" required (blur)="onBlur()" />
       <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)" class="alert alert-danger">
         <div *ngIf="confirmpassword.errors.required">
-          Password is required.
+          Retype your password
         </div>
+      </div>
+      <div *ngIf="confirmPasswordError" class="alert alert-danger">
+        Passwords do not match
       </div>
     </div><br/>
     <div class="label-container">
-      <label class="form-control-label">Full Name</label>
+      <label for="fullName" class="form-control-label">Full Name</label>
     </div>
     <div class="input-container">
-      <input name="fullname" id="fullname" class="form-control" type="text" [(ngModel)]="user.fullname" #fullname="ngModel" required/>
-      <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert alert-danger">
-        <div *ngIf="fullname.errors.required">
+      <input name="fullName" id="fullName" class="form-control" type="text" [(ngModel)]="user.userDetail.fullName" #fullName="ngModel" required/>
+      <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="alert alert-danger">
+        <div *ngIf="fullName.errors.required">
           Full Name is required.
         </div>
       </div>
     </div><br/>
     <div class="label-container">
-      <label class="form-control-label">Phone Number</label>
+      <label for="phoneNumber" class="form-control-label">Phone Number</label>
     </div>
     <div class="input-container">
-      <input name="phonenumber" id="phonenumber" class="form-control" type="text" [(ngModel)]="user.phonenumber" #phonenumber="ngModel" required/>
-      <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="alert alert-danger">
-        <div *ngIf="phonenumber.errors.required">
-          Phone number is required.
+      <input name="phoneNumber" id="phoneNumber" class="form-control" type="text" [(ngModel)]="user.userDetail.phoneNumber" #phoneNumber="ngModel" required/>
+      <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
+        <div *ngIf="phoneNumber.errors.required">
+          Phone number is required
         </div>
       </div>
     </div><br/>
     <div class="label-container">
-      <label class="form-control-label">Profile Summary</label>
+      <label for="userSummary" class="form-control-label">Profile Summary</label>
     </div>
     <div class="input-container">
-      <input name="profilesummary" id="profilesummary" class="form-control" type="text" [(ngModel)]="user.profilesummary" #profilesummary="ngModel"/>
-      <div *ngIf="profilesummary.invalid && (profilesummary.dirty || profilesummary.touched)" class="alert alert-danger">
+      <input name="userSummary" id="userSummary" class="form-control" type="text" [(ngModel)]="user.userDetail.userSummary" #userSummary="ngModel"/>
+      <div *ngIf="userSummary.invalid && (userSummary.dirty || userSummary.touched)" class="alert alert-danger">
       </div>
     </div><br/><br/>
     <ul>
-      <li><button class="button" type="submit" [disabled]="!signupForm.form.valid">Sign Up</button></li>
+      <li><button class="button" type="submit" [disabled]="!signupForm.form.valid || confirmPasswordError">Sign Up</button></li>
       <li><a href="home"><button class="button">Cancel</button></a></li>
     </ul>
   </div>
